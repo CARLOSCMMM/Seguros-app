@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fondo_principal">#EDC5B6</color>
+    <color name="texto_primario">#222222</color>
+    <color name="color_botones">#E91E32</color>
+    <color name="color_config">#000000</color>
+    <color name="color_contenedor_botones">#F68680</color>
+    <color name="color_letras">#000000</color>
+</resources>

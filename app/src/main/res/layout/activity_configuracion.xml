@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo_principal">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="178dp"
+        android:layout_height="161dp"
+        android:src="@drawable/mafre_logo"
+        android:contentDescription="Logo"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="INTRODUCE NÚMERO A GUARDAR:"
+        android:textSize="20sp"
+        android:textColor="@color/color_letras"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/etTelefono"
+        android:hint="Introduce número"
+        android:inputType="phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:text="Guardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
