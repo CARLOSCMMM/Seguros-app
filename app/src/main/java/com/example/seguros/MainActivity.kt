@@ -64,7 +64,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnMaps.setOnClickListener {
-            val gmmIntentUri = Uri.parse("geo:40.4203,-3.7058?q=MAPFRE+Madrid")
+            val latitud = 37.7795
+            val longitud = -3.7853
+            val etiqueta = "MAPFRE Jaén"
+            val gmmIntentUri = Uri.parse("geo:$latitud,$longitud?q=$etiqueta")
             val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
             mapIntent.setPackage("com.google.android.apps.maps")
             startActivity(mapIntent)
