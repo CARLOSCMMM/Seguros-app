@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -41,26 +42,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnAlarma.setOnClickListener {
-            Toast.makeText(this, "Alarma programada para dentro de 2 minutos", Toast.LENGTH_SHORT).show()
-
-            android.os.Handler(mainLooper).postDelayed({
-                try {
-                    val sonido = android.provider.Settings.System.DEFAULT_ALARM_ALERT_URI
-                    val ringtone = android.media.RingtoneManager.getRingtone(applicationContext, sonido)
-                    ringtone.play()
-                    Toast.makeText(this, "Alarma sonando", Toast.LENGTH_LONG).show()
-
-                    android.os.Handler(mainLooper).postDelayed({
-                        if (ringtone.isPlaying) {
-                            ringtone.stop()
-                            Toast.makeText(this, "Alarma detenida automáticamente a los 10 segundos", Toast.LENGTH_SHORT).show()
-                        }
-                    }, 10 * 1000)
-
-                } catch (e: Exception) {
-                    Toast.makeText(this, "Error al reproducir el sonido de alarma", Toast.LENGTH_SHORT).show()
-                }
-            }, 2 * 60 * 1000)
+            val intent = Intent(AlarmClock.ACTION_SET_TIMER).apply {
+                putExtra(AlarmClock.EXTRA_MESSAGE, "Alarma de Seguros")
+                putExtra(AlarmClock.EXTRA_LENGTH, 120)
+                putExtra(AlarmClock.EXTRA_SKIP_UI, false)
+            }
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+                Toast.makeText(this, "Temporizador programado para 2 minutos", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "No se puede programar un temporizador", Toast.LENGTH_SHORT).show()
+            }
         }
 
         btnMaps.setOnClickListener {
