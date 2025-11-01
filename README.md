@@ -24,11 +24,11 @@ Es la pantalla de inicio y el centro neurálgico de la aplicación.
 - **`btnUrl.setOnClickListener`**: 
     - **Función**: Abre el navegador web predeterminado del dispositivo con la página de MAPFRE. Lo hace creando un `Intent` con la acción `ACTION_VIEW` y un `Uri` que contiene la URL.
 - **`btnAlarma.setOnClickListener`**:
-    - **Función**: Programa una alarma que suena después de un retardo. 
-        1.  Muestra un `Toast` para notificar al usuario que la alarma ha sido programada.
-        2.  Usa un `Handler` para ejecutar un bloque de código tras un retardo de 2 minutos (`2 * 60 * 1000` milisegundos).
-        3.  Dentro del `Handler`, obtiene el sonido de alarma por defecto del sistema y lo reproduce usando `RingtoneManager`.
-        4.  Programa un segundo `Handler` que detiene el `Ringtone` automáticamente después de 10 segundos con el mismo funcionamiento de los milisegundos que en el anterior hadler para evitar que suene indefinidamente.
+    - **Función**: Inicia un temporizador utilizando la aplicación de reloj del sistema.
+        1.  Crea un `Intent` con la acción `AlarmClock.ACTION_SET_TIMER` para configurar un temporizador.
+        2.  Añade datos extra al `Intent`: un mensaje ("Alarma de Seguros") con `EXTRA_MESSAGE`, una duración de 120 segundos con `EXTRA_LENGTH`, y `EXTRA_SKIP_UI` en `false` para mostrar la interfaz del reloj.
+        3.  Verifica si hay alguna aplicación en el dispositivo que pueda manejar este `Intent`.
+        4.  Si se encuentra una aplicación, la inicia y muestra un `Toast` confirmando que el temporizador fue programado. Si no, muestra un mensaje de error.
 - **`btnMaps.setOnClickListener`**:
     - **Función**: Abre Google Maps para mostrar la ubicación de una oficina de MAPFRE en Jaén. Construye un `Uri` con el formato `geo:` utilizando variables para la latitud, longitud y etiqueta, lo que facilita futuras modificaciones. El `Intent` se configura para abrirse específicamente con la aplicación de Google Maps (`mapIntent.setPackage(...)`).
 - **`btnConfig.setOnClickListener`**:
@@ -71,3 +71,5 @@ Permite al usuario personalizar el número de teléfono para la llamada de emerg
 ## ️ Configuración y Manifiesto
 - **`build.gradle.kts`**: 
     - **Función**: Define las dependencias del proyecto,se utiliza para la que versión minima de android sea la 21 para ver como actúa en los permisos de la llamada.
+- **`AndoidManifest.xml`**:
+    - **Función**: Define los permisos de alarma y de llamada.

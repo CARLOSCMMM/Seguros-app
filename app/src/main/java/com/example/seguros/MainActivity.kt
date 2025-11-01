@@ -25,10 +25,6 @@ class MainActivity : AppCompatActivity() {
         val btnMaps = findViewById<ImageButton>(R.id.btnMaps)
         val btnConfig = findViewById<ImageButton>(R.id.btnConfiguracion)
 
-        btnConfig.setOnClickListener {
-            startActivity(Intent(this, ConfiguracionActivity::class.java))
-        }
-
         btnLlamada.setOnClickListener {
             val telefono = prefs.getString("telefono", "000000000")
             val intent = Intent(this, LlamadaActivity::class.java)
@@ -63,6 +59,10 @@ class MainActivity : AppCompatActivity() {
             val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
             mapIntent.setPackage("com.google.android.apps.maps")
             startActivity(mapIntent)
+        }
+
+        btnConfig.setOnClickListener {
+            startActivity(Intent(this, ConfiguracionActivity::class.java))
         }
     }
 }
