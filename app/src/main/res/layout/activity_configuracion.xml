@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutPrincipal"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="24dp"
@@ -27,7 +28,7 @@
 
     <EditText
         android:id="@+id/etTelefono"
-        android:hint="Introduce número"
+        android:hint="Introduce número de contacto"
         android:inputType="phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,29 +36,116 @@
 
     <Button
         android:id="@+id/btnGuardar"
-        android:text="Guardar"
+        android:text="Guardar número"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/tvTituloFecha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Selecciona una fecha:"
-        android:textSize="16sp" />
-
-    <DatePicker
-        android:id="@+id/dpFecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:calendarViewShown="true"
-        android:datePickerMode="spinner" />
+        android:text="Avisos:"
+        android:textSize="16sp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"/>
 
-    <Button
-        android:id="@+id/btnSelecciona"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <CheckBox
+            android:id="@+id/cbRenovacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Renovación"/>
+
+        <CheckBox
+            android:id="@+id/cbFacturas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Facturas"/>
+
+        <CheckBox
+            android:id="@+id/cbComercial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Info comercial"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tipo de asistencia preferida:"
+        android:textSize="16sp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <RadioGroup
+            android:id="@+id/rgAsistencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rbCarretera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asistencia en carretera"/>
+
+            <RadioButton
+                android:id="@+id/rbHogar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asistencia en hogar"/>
+
+            <RadioButton
+                android:id="@+id/rbMedica"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asistencia médica"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnConfirmarAsistencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="Fecha Asistencia"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar ubicación automáticamente"/>
+
+        <Switch
+            android:id="@+id/swUbicacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progresoCircular"
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Selecciona uno" />
+        android:indeterminate="true"
+        android:visibility="gone"
+        android:layout_marginTop="32dp"/>
 </LinearLayout>
