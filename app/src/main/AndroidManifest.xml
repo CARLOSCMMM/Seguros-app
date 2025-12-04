@@ -19,6 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Seguros">
         <activity
+            android:name=".ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DadosActivity"
+            android:exported="false" />
+        <activity
             android:name=".FechaAsistenciaActivity"
             android:exported="false" />
         <activity

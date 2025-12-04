@@ -90,7 +90,7 @@
                 android:backgroundTint="@color/color_config"/>
 
             <ImageButton
-                android:id="@+id/btnNuevo2"
+                android:id="@+id/btnJuegoChistes"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginHorizontal="16dp"
