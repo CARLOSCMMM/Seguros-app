@@ -133,10 +133,15 @@ class DadosActivity : AppCompatActivity() {
      */
     private fun viewResult() {
         bindingMain.txtResultado.text = sum.toString()
+
         if (sum == userNumber) {
             val intent = Intent(this, ResultActivity::class.java)
+            intent.putExtra("resultadoDados", sum)   // enviamos el número
             startActivity(intent)
+        } else {
+            Toast.makeText(this, "No has acertado, el resultado fue $sum", Toast.LENGTH_SHORT).show()
         }
+
         bindingMain.btnLanzar.isEnabled = true
     }
 }

@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         val btnAlarma = findViewById<ImageButton>(R.id.btnAlarma)
         val btnMaps = findViewById<ImageButton>(R.id.btnMaps)
         val btnConfig = findViewById<ImageButton>(R.id.btnConfiguracion)
+        val btnJuegoChistes = findViewById<ImageButton>(R.id.btnJuegoChistes)
 
         btnLlamada.setOnClickListener {
             val telefono = prefs.getString("telefono", "000000000")
@@ -63,6 +64,11 @@ class MainActivity : AppCompatActivity() {
 
         btnConfig.setOnClickListener {
             startActivity(Intent(this, ConfiguracionActivity::class.java))
+        }
+
+        btnJuegoChistes.setOnClickListener {
+            val intent = Intent(this, DadosActivity::class.java)
+            startActivity(intent)
         }
     }
 }
