@@ -7,4 +7,5 @@
     <color name="color_contenedor_botones">#F68680</color>
     <color name="color_letras">#000000</color>
     <color name="purple_500">#FF6200EE</color>
+    <color name="fondo_principal_oscuro">#F68680</color>
 </resources>
